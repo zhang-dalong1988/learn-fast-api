@@ -1,0 +1,13 @@
+# FastAPI Learning Project Dependencies
+# Install with: pip install -r requirements.txt
+
+# FastAPI framework
+fastapi==0.124.4
+
+# ASGI server for running FastAPI applications
+uvicorn[standard]==0.38.0
+
+# Optional: Additional useful packages for development
+# pytest>=7.0.0              # For testing
+# httpx>=0.24.0              # For testing async endpoints
+# python-multipart>=0.0.6    # For form data support
