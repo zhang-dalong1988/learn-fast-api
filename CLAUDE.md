@@ -82,7 +82,7 @@ Core dependencies defined in `requirements.txt`:
 - Examples focus on modern FastAPI features and best practices
 - Progressive learning structure from basic to advanced concepts
 
-## 教程采集工作流 (用户发出誊写教程指令的相关注意项)
+## 教程采集 (用户发出誊写教程需求的相关事项)
 
 - 根据用户给出的 URL, 将教程誊写至本地
 - 所有符号转换为半角英文符号
