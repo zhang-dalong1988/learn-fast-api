@@ -79,11 +79,13 @@ node simple-web-scraper.js https://example.com
 To use the web scraper with Claude Desktop:
 
 1. **Locate Claude Desktop config file:**
+
    - Windows: `%APPDATA%\Claude\claude_desktop_config.json`
    - macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
    - Linux: `~/.config/Claude/claude_desktop_config.json`
 
 2. **Add the server configuration:**
+
    ```json
    {
      "mcpServers": {
@@ -177,6 +179,7 @@ uvicorn[standard]==0.38.0  # ASGI server with standard features
 ### Node.js Dependencies
 
 The MCP server has **zero external dependencies** - it uses only Node.js built-in modules:
+
 - `https` - For making HTTPS requests
 - `http` - For making HTTP requests
 - `url` - For URL parsing
@@ -213,11 +216,13 @@ The MCP server has **zero external dependencies** - it uses only Node.js built-i
 当用户需要从网页采集教程时：
 
 1. **使用 MCP 服务器**（推荐）：
+
    - 确保在 Claude Desktop 中配置了 MCP 服务器
    - 直接请求："请抓取 [URL] 的教程内容"
    - 内容将自动提取并结构化
 
 2. **手动处理**：
+
    - 使用 `npm run scrape [URL]` 获取内容
    - 手动转换为 markdown 格式
 
@@ -225,8 +230,8 @@ The MCP server has **zero external dependencies** - it uses only Node.js built-i
    - 所有符号转换为半角英文符号
    - 保持段落结构和空格
    - 添加章节序号，保持文档连续性
-   - 使用中文标点符号
    - 包含实际的代码示例和解释
+   - 同类代码仅保留 Pyhton 版本较高的示例
 
 ## Troubleshooting
 
