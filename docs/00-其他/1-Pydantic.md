@@ -1,14 +1,14 @@
 # Pydantic 简要介绍
 
-Pydantic 是一个强大的 Python 数据验证和设置管理库，使用 Python 类型提示进行数据验证。它是 FastAPI 的核心依赖，提供了自动的数据验证、序列化和文档生成功能。
+Pydantic 是一个强大的 Python 数据验证和设置管理库,使用 Python 类型提示进行数据验证.它是 FastAPI 的核心依赖,提供了自动的数据验证、序列化和文档生成功能.
 
 ## 核心特性
 
-- **类型安全**：基于 Python 类型注解进行验证
-- **高性能**：使用 Rust 编写的核心，速度极快
-- **易用性**：直观的 API，最小化样板代码
-- **集成性**：与主流框架完美集成
-- **自动文档**：自动生成 JSON Schema
+- **类型安全**:基于 Python 类型注解进行验证
+- **高性能**:使用 Rust 编写的核心,速度极快
+- **易用性**:直观的 API,最小化样板代码
+- **集成性**:与主流框架完美集成
+- **自动文档**:自动生成 JSON Schema
 
 ## 基础使用
 
@@ -235,13 +235,13 @@ class UserCreate(BaseModel):
     password: str
     email: EmailStr
 
-# 更新模型（所有字段可选）
+# 更新模型(所有字段可选)
 class UserUpdate(BaseModel):
     username: Optional[str] = None
     email: Optional[EmailStr] = None
     is_active: Optional[bool] = None
 
-# 数据库模型（包含所有字段）
+# 数据库模型(包含所有字段)
 class UserInDB(BaseModel):
     id: int
     username: str
@@ -250,7 +250,7 @@ class UserInDB(BaseModel):
     is_active: bool
     created_at: datetime
 
-# 响应模型（排除敏感信息）
+# 响应模型(排除敏感信息)
 class UserResponse(BaseModel):
     id: int
     username: str
@@ -315,7 +315,7 @@ class OptimizedModel(BaseModel):
     name: str
     status: str
 
-# 对于大量数据，使用 construct 跳过验证
+# 对于大量数据,使用 construct 跳过验证
 data = [{"name": "item1", "status": "active"}, ...]
 items = [OptimizedModel.construct(**item) for item in data]
 ```
@@ -367,7 +367,7 @@ class Model(BaseModel):
     # 自动解析各种格式
     dt: datetime
 
-# 接受的格式：
+# 接受的格式:
 # - ISO 8601 字符串
 # - timestamp
 # - datetime 对象
@@ -379,7 +379,7 @@ m = Model(dt="2024-01-01T00:00:00")
 ```python
 from typing import Optional, Union
 
-# 推荐写法（Pydantic v2）
+# 推荐写法(Pydantic v2)
 field: Optional[str] = None
 
 # 或者
@@ -391,11 +391,11 @@ field: Union[str, None] = None
 
 ## 总结
 
-Pydantic 通过 Python 类型提示提供了强大而优雅的数据验证方案：
+Pydantic 通过 Python 类型提示提供了强大而优雅的数据验证方案:
 
-- **类型驱动**：利用 Python 的类型系统
-- **自动验证**：无需手写验证代码
-- **高性能**：Rust 实现的核心
-- **易集成**：与 FastAPI 等框架无缝集成
+- **类型驱动**:利用 Python 的类型系统
+- **自动验证**:无需手写验证代码
+- **高性能**:Rust 实现的核心
+- **易集成**:与 FastAPI 等框架无缝集成
 
-它是现代 Python 开发中处理数据验证的首选工具！
+它是现代 Python 开发中处理数据验证的首选工具!

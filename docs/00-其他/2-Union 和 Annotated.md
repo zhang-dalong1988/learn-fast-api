@@ -1,10 +1,10 @@
 # Union 和 Annotated 类型注解
 
-在 Python 类型系统中，`Union` 和 `Annotated` 是两个重要的类型注解工具，特别是在 FastAPI 中广泛使用。
+在 Python 类型系统中,`Union` 和 `Annotated` 是两个重要的类型注解工具,特别是在 FastAPI 中广泛使用.
 
 ## 1. Union 类型
 
-`Union` 用于表示一个变量可以是多种类型之一。
+`Union` 用于表示一个变量可以是多种类型之一.
 
 ### 1.1 基本语法
 
@@ -28,7 +28,7 @@ app = FastAPI()
 
 @app.get("/user/")
 async def get_user(age: Union[int, str] = None):
-    """获取用户信息，年龄可以是数字或字符串"""
+    """获取用户信息,年龄可以是数字或字符串"""
     return {"age": age}
 ```
 
@@ -49,7 +49,7 @@ async def create_user(user: User):
 
 ### 1.3 可选类型
 
-在 Python 3.10 之前，使用 `Union[Type, None]` 表示可选类型：
+在 Python 3.10 之前,使用 `Union[Type, None]` 表示可选类型:
 
 ```python
 from typing import Union
@@ -65,7 +65,7 @@ async def read_items(q: Union[str, None] = None):
 
 ## 2. Annotated 类型
 
-`Annotated` 是 Python 3.9+ 引入的类型注解，允许为类型添加额外的元数据。
+`Annotated` 是 Python 3.9+ 引入的类型注解,允许为类型添加额外的元数据.
 
 ### 2.1 基本语法
 
@@ -149,7 +149,7 @@ app = FastAPI()
 async def read_items(q: Union[str, None] = None):
     return {"q": q}
 
-# 或者使用 Optional（Optional[X] 等同于 Union[X, None]）
+# 或者使用 Optional(Optional[X] 等同于 Union[X, None])
 @app.get("/products/")
 async def read_products(name: Optional[str] = None):
     return {"name": name}
@@ -301,7 +301,7 @@ async def create_user(user: User):
 ### 5.2 保持一致性
 
 ```python
-# 好的做法：统一使用一种风格
+# 好的做法:统一使用一种风格
 from typing import Annotated
 from fastapi import FastAPI, Query
 
@@ -344,12 +344,12 @@ class User(BaseModel):
 | Python 版本要求 | 3.5+               | 3.9+                   |
 | 推荐场景        | 简单的类型联合     | 需要额外约束或元数据时 |
 
-### 使用建议：
+### 使用建议:
 
-1. **简单的类型联合**：使用 `Union` 或 `|` 操作符
-2. **需要添加验证规则**：使用 `Annotated`
-3. **需要额外的元数据**：使用 `Annotated`
-4. **Python 3.9+ 项目**：优先考虑使用 `Annotated`
-5. **保持向后兼容**：Python 3.8 项目使用 `Union`
+1. **简单的类型联合**:使用 `Union` 或 `|` 操作符
+2. **需要添加验证规则**:使用 `Annotated`
+3. **需要额外的元数据**:使用 `Annotated`
+4. **Python 3.9+ 项目**:优先考虑使用 `Annotated`
+5. **保持向后兼容**:Python 3.8 项目使用 `Union`
 
-通过合理使用 `Union` 和 `Annotated`，可以让您的 FastAPI 应用更加健壮和易于维护。
+通过合理使用 `Union` 和 `Annotated`,可以让您的 FastAPI 应用更加健壮和易于维护.

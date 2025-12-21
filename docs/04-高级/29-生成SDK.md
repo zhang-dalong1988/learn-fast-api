@@ -1,10 +1,10 @@
 # 生成 SDK - FastAPI
 
-FastAPI 可以基于您的 OpenAPI 规范自动生成客户端 SDK（软件开发工具包），这使其他开发者可以更容易地在不同编程语言中与您的 API 交互。
+FastAPI 可以基于您的 OpenAPI 规范自动生成客户端 SDK(软件开发工具包),这使其他开发者可以更容易地在不同编程语言中与您的 API 交互.
 
 ## 什么是 SDK
 
-SDK（Software Development Kit，软件开发工具包）是一组工具和库的集合，使开发者能够更容易地使用特定的平台或 API。对于 FastAPI，SDK 通常包括：
+SDK(Software Development Kit,软件开发工具包)是一组工具和库的集合,使开发者能够更容易地使用特定的平台或 API.对于 FastAPI,SDK 通常包括:
 - 类型化的客户端类
 - 自动认证处理
 - 错误处理
@@ -13,7 +13,7 @@ SDK（Software Development Kit，软件开发工具包）是一组工具和库�
 
 ## 使用 OpenAPI Generator
 
-OpenAPI Generator 是一个流行的工具，可以从 OpenAPI 规范生成各种语言的客户端 SDK。
+OpenAPI Generator 是一个流行的工具,可以从 OpenAPI 规范生成各种语言的客户端 SDK.
 
 ### 安装 OpenAPI Generator
 
@@ -103,7 +103,7 @@ class Book(BookBase):
         schema_extra = {
             "example": {
                 "id": 1,
-                "title": "Python 编程：从入门到实践",
+                "title": "Python 编程:从入门到实践",
                 "author": "Eric Matthes",
                 "description": "一本优秀的 Python 入门书",
                 "price": 89.00,
@@ -141,9 +141,9 @@ books_db = {
 )
 async def get_books(skip: int = 0, limit: int = 10):
     """
-    获取图书列表。
+    获取图书列表.
 
-    - **skip**: 跳过的记录数（用于分页）
+    - **skip**: 跳过的记录数(用于分页)
     - **limit**: 返回的最大记录数
     """
     books = list(books_db.values())[skip : skip + limit]
@@ -159,7 +159,7 @@ async def get_books(skip: int = 0, limit: int = 10):
 )
 async def get_book(book_id: int):
     """
-    根据图书 ID 获取图书详情。
+    根据图书 ID 获取图书详情.
 
     - **book_id**: 要检索的图书的唯一标识符
     """
@@ -178,9 +178,9 @@ async def get_book(book_id: int):
 )
 async def create_book(book: BookCreate):
     """
-    创建一本新图书。
+    创建一本新图书.
 
-    返回新创建的图书信息，包括自动生成的 ID。
+    返回新创建的图书信息,包括自动生成的 ID.
     """
     new_id = max(books_db.keys()) + 1
     new_book = Book(id=new_id, **book.dict())
@@ -197,9 +197,9 @@ async def create_book(book: BookCreate):
 )
 async def update_book(book_id: int, book: BookUpdate):
     """
-    更新图书信息。
+    更新图书信息.
 
-    只更新提供的字段，未提供的字段保持不变。
+    只更新提供的字段,未提供的字段保持不变.
     """
     if book_id not in books_db:
         raise HTTPException(status_code=404, detail="Book not found")
@@ -221,7 +221,7 @@ async def update_book(book_id: int, book: BookUpdate):
 )
 async def delete_book(book_id: int):
     """
-    根据 ID 删除图书。
+    根据 ID 删除图书.
 
     - **book_id**: 要删除的图书的唯一标识符
     """
@@ -260,9 +260,9 @@ users_db = {}
 )
 async def create_user(user: UserCreate):
     """
-    创建新用户。
+    创建新用户.
 
-    用户名必须是唯一的，电子邮件必须有效。
+    用户名必须是唯一的,电子邮件必须有效.
     """
     if any(u["email"] == user.email for u in users_db.values()):
         raise HTTPException(status_code=400, detail="Email already registered")
@@ -271,7 +271,7 @@ async def create_user(user: UserCreate):
         raise HTTPException(status_code=400, detail="Username already taken")
 
     new_id = max([0] + list(users_db.keys())) + 1
-    # 在实际应用中，您应该加密密码
+    # 在实际应用中,您应该加密密码
     new_user = User(
         id=new_id,
         email=user.email,
@@ -290,7 +290,7 @@ async def create_user(user: UserCreate):
     tags=["Users"],
 )
 async def get_user(user_id: int):
-    """根据用户 ID 获取用户信息。"""
+    """根据用户 ID 获取用户信息."""
     if user_id not in users_db:
         raise HTTPException(status_code=404, detail="User not found")
     return users_db[user_id]
@@ -617,10 +617,10 @@ if __name__ == "__main__":
 
 ### 1. API 设计原则
 
-- **一致性和可预测性**：使用一致的命名约定和模式
-- **版本控制**：在 URL 中包含 API 版本（如 `/api/v1`）
-- **错误处理**：提供清晰的错误消息和适当的 HTTP 状态码
-- **文档化**：为每个端点提供清晰的描述
+- **一致性和可预测性**:使用一致的命名约定和模式
+- **版本控制**:在 URL 中包含 API 版本(如 `/api/v1`)
+- **错误处理**:提供清晰的错误消息和适当的 HTTP 状态码
+- **文档化**:为每个端点提供清晰的描述
 
 ### 2. OpenAPI 优化
 
@@ -631,7 +631,7 @@ from pydantic import BaseModel, Field
 class Item(BaseModel):
     name: str = Field(..., description="项目名称", min_length=1, max_length=100)
     description: Optional[str] = Field(None, description="项目描述")
-    price: float = Field(..., gt=0, description="价格（必须大于0）")
+    price: float = Field(..., gt=0, description="价格(必须大于0)")
     tags: list[str] = Field(default=[], description="标签列表")
 
     class Config:
@@ -677,7 +677,7 @@ async def read_users_me(current_user: dict = Depends(get_current_user)):
 
 ### 4. 自定义 SDK 生成模板
 
-创建自定义生成器模板以更好地控制生成的代码：
+创建自定义生成器模板以更好地控制生成的代码:
 
 ```bash
 # 创建自定义模板
@@ -728,7 +728,7 @@ app = FastAPI()
 @app.post(
     "/webhooks/payment-completed",
     summary="支付完成回调",
-    description="当支付完成时，外部服务会调用此端点"
+    description="当支付完成时,外部服务会调用此端点"
 )
 async def payment_webhook(request: Request):
     # 处理 webhook
@@ -770,10 +770,10 @@ class ExampleResponse(BaseModel):
 
 ## 总结
 
-生成 SDK 可以：
+生成 SDK 可以:
 - 提高开发者的采用率
 - 减少 API 集成错误
 - 提供类型安全的客户端
 - 自动处理认证和错误
 
-通过精心设计您的 API 和 OpenAPI 规范，您可以为各种编程语言生成高质量的 SDK，使其他开发者更容易与您的服务集成。
+通过精心设计您的 API 和 OpenAPI 规范,您可以为各种编程语言生成高质量的 SDK,使其他开发者更容易与您的服务集成.

@@ -1,12 +1,12 @@
 # Cookie 参数模型
 
-当有多个 cookie 参数时，你可能不想为每个 cookie 参数都声明一个单独的函数参数。
+当有多个 cookie 参数时,你可能不想为每个 cookie 参数都声明一个单独的函数参数.
 
-相反，你可以使用 Pydantic 模型来声明所有 cookie 参数。
+相反,你可以使用 Pydantic 模型来声明所有 cookie 参数.
 
 ## 使用 Pydantic 模型
 
-首先，导入 Pydantic 的 `BaseModel` 和 FastAPI 的 `Cookie`：
+首先,导入 Pydantic 的 `BaseModel` 和 FastAPI 的 `Cookie`:
 
 ```python
 from typing import Annotated
@@ -48,20 +48,20 @@ async def read_items(cookies: Cookies = Cookie()):
 
 ## 工作原理
 
-FastAPI 会检查 cookie 参数，并将它们转换为 Pydantic 模型。
+FastAPI 会检查 cookie 参数,并将它们转换为 Pydantic 模型.
 
-在这个例子中：
+在这个例子中:
 - `session_id` 是必需的
 - `user_agent` 是必需的
 - `last_visit` 是可选的
 
-如果客户端发送了这些 cookie：
+如果客户端发送了这些 cookie:
 
 ```
 Cookie: session_id=abc123; user_agent=Mozilla/5.0; last_visit=2023-01-01
 ```
 
-Pydantic 模型会创建如下实例：
+Pydantic 模型会创建如下实例:
 
 ```python
 Cookies(
@@ -73,7 +73,7 @@ Cookies(
 
 ## 验证
 
-你也可以获得 Pydantic 的所有验证功能：
+你也可以获得 Pydantic 的所有验证功能:
 
 ```python
 from typing import Annotated
@@ -115,7 +115,7 @@ async def read_items(cookies: Cookies = Cookie()):
 
 ## 嵌套模型
 
-你还可以使用嵌套的 Pydantic 模型：
+你还可以使用嵌套的 Pydantic 模型:
 
 ```python
 from typing import Annotated

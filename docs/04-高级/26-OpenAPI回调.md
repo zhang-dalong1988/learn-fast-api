@@ -1,14 +1,14 @@
 # OpenAPI 回调 - FastAPI
 
-OpenAPI 回调允许您定义在特定操作完成后触发的出站 HTTP 请求。这对于实现 Webhook 钩子、通知系统等非常有用。
+OpenAPI 回调允许您定义在特定操作完成后触发的出站 HTTP 请求.这对于实现 Webhook 钩子、通知系统等非常有用.
 
 ## 什么是回调
 
-回调是一种"出站"请求，即您的应用程序在特定操作完成后向其他系统发送 HTTP 请求。这与常规的"入站"请求相反，后者是客户端向您的应用程序发送请求。
+回调是一种"出站"请求,即您的应用程序在特定操作完成后向其他系统发送 HTTP 请求.这与常规的"入站"请求相反,后者是客户端向您的应用程序发送请求.
 
 ## 定义回调
 
-您可以使用 `APIRouter` 的 `callbacks` 参数或 `@app.callbacks()` 装饰器来定义回调。
+您可以使用 `APIRouter` 的 `callbacks` 参数或 `@app.callbacks()` 装饰器来定义回调.
 
 ### 基本示例
 
@@ -41,9 +41,9 @@ async def item_created_callback(
     callback_url: str = "http://example.com/callbacks"
 ):
     """
-    这是一个回调定义，当新项目被创建时，外部服务会接收到通知。
+    这是一个回调定义,当新项目被创建时,外部服务会接收到通知.
 
-    - **event**: 事件类型（如 "created"）
+    - **event**: 事件类型(如 "created")
     - **item_id**: 被创建项目的ID
     """
     pass
@@ -52,11 +52,11 @@ async def item_created_callback(
 @app.post("/items/", response_model=Item)
 async def create_item(item: Item):
     """
-    创建一个新项目。
+    创建一个新项目.
 
-    这会触发一个回调到之前定义的回调端点。
+    这会触发一个回调到之前定义的回调端点.
     """
-    # 在实际应用中，这里会保存项目并发送回调
+    # 在实际应用中,这里会保存项目并发送回调
     return item
 
 
@@ -144,14 +144,14 @@ async def ship_order(order_id: str, tracking_number: str):
 
 ## 回调 URL 模板
 
-回调 URL 使用 URI 模板语法，允许您引用请求参数和请求体：
+回调 URL 使用 URI 模板语法,允许您引用请求参数和请求体:
 
 ### 常用模板变量
 
-- `{$callback_url}`：回调的基础 URL
-- `{$request.body#/path}`：请求体中的 JSON 路径
-- `{$request.query.param}`：查询参数
-- `{$request.header.name}`：请求头
+- `{$callback_url}`:回调的基础 URL
+- `{$request.body#/path}`:请求体中的 JSON 路径
+- `{$request.query.param}`:查询参数
+- `{$request.header.name}`:请求头
 
 ```python
 from fastapi import FastAPI, Header, Query
@@ -232,7 +232,7 @@ app.include_router(router)
 
 ## 实现回调发送逻辑
 
-以下是一个完整的实现示例，展示如何实际发送回调：
+以下是一个完整的实现示例,展示如何实际发送回调:
 
 ```python
 import httpx
@@ -268,7 +268,7 @@ async def send_callback(callback_url: str, event: CallbackEvent):
 @app.post("/items/", response_model=Item)
 async def create_item(item: Item, background_tasks: BackgroundTasks):
     """创建项目并发送回调"""
-    # 在实际应用中，这里会保存到数据库
+    # 在实际应用中,这里会保存到数据库
     # 准备回调事件
     from datetime import datetime
     event = CallbackEvent(
@@ -302,7 +302,7 @@ async def item_creation_callback(
     callback_url: str,
 ):
     """
-    当新项目创建时触发的事件回调。
+    当新项目创建时触发的事件回调.
     """
     pass
 ```
@@ -441,7 +441,7 @@ class CallbackService:
         wait=wait_exponential(multiplier=1, min=4, max=10)
     )
     async def send_callback_with_retry(self, url: str, data: dict):
-        """发送回调，如果失败则重试"""
+        """发送回调,如果失败则重试"""
         response = await self.client.post(url, json=data, timeout=30.0)
         response.raise_for_status()
         return response.json()
@@ -476,22 +476,22 @@ async def update_item(item_id: int, item: dict):
 
 ## 最佳实践
 
-1. **文档化回调**：清晰地记录每个回调的目的、数据格式和触发条件。
+1. **文档化回调**:清晰地记录每个回调的目的、数据格式和触发条件.
 
-2. **版本控制**：在回调 URL 中包含版本号，以便未来升级。
+2. **版本控制**:在回调 URL 中包含版本号,以便未来升级.
 
-3. **幂等性**：确保回调处理是幂等的，重复执行不会产生副作用。
+3. **幂等性**:确保回调处理是幂等的,重复执行不会产生副作用.
 
-4. **错误处理**：实现适当的重试机制和错误日志。
+4. **错误处理**:实现适当的重试机制和错误日志.
 
-5. **安全性**：使用签名验证来确认回调的来源。
+5. **安全性**:使用签名验证来确认回调的来源.
 
-6. **监控**：监控回调的成功和失败率。
+6. **监控**:监控回调的成功和失败率.
 
 ## 回调与 Webhooks 的区别
 
-- **回调**：通常是一次性的，与特定 API 操作直接相关。
-- **Webhooks**：通常是长期订阅，可以接收多种类型的事件通知。
+- **回调**:通常是一次性的,与特定 API 操作直接相关.
+- **Webhooks**:通常是长期订阅,可以接收多种类型的事件通知.
 
 ## 更多信息
 

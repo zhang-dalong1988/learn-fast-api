@@ -1,12 +1,12 @@
 # 测试 WebSockets - FastAPI
 
-您可以使用 `TestClient` 测试您的 WebSocket。
+您可以使用 `TestClient` 测试您的 WebSocket.
 
 ## 测试 WebSocket
 
-要测试 WebSocket，您可以使用 `TestClient` 中的 `with TestClient(app) as client:`。
+要测试 WebSocket,您可以使用 `TestClient` 中的 `with TestClient(app) as client:`.
 
-在上下文中，您可以使用 `client.websocket_connect()` 方法连接到 WebSocket。
+在上下文中,您可以使用 `client.websocket_connect()` 方法连接到 WebSocket.
 
 ### 基本示例
 
@@ -60,7 +60,7 @@ def test_websocket_with_path_param():
 
 ## 测试 WebSocket 生命周期
 
-您可以测试 WebSocket 的整个生命周期，包括连接、消息交换和断开连接：
+您可以测试 WebSocket 的整个生命周期,包括连接、消息交换和断开连接:
 
 ```python
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
@@ -93,7 +93,7 @@ def test_websocket_lifecycle():
 
 ## 测试 JSON 消息
 
-您也可以测试发送和接收 JSON 消息：
+您也可以测试发送和接收 JSON 消息:
 
 ```python
 from fastapi import FastAPI, WebSocket
@@ -128,7 +128,7 @@ def test_websocket_json():
 
 ## 测试 WebSocket 异常
 
-您可以使用 `pytest.raises` 测试 WebSocket 异常：
+您可以使用 `pytest.raises` 测试 WebSocket 异常:
 
 ```python
 import pytest
@@ -158,7 +158,7 @@ def test_websocket_error():
 
 ## 测试 WebSocket 头信息
 
-您可以测试带有特定头信息的 WebSocket 连接：
+您可以测试带有特定头信息的 WebSocket 连接:
 
 ```python
 from fastapi import FastAPI, WebSocket, Header
@@ -191,7 +191,7 @@ def test_websocket_with_headers():
 
 ## 测试 WebSocket 子协议
 
-您可以测试使用特定子协议的 WebSocket 连接：
+您可以测试使用特定子协议的 WebSocket 连接:
 
 ```python
 from fastapi import FastAPI, WebSocket
@@ -215,7 +215,7 @@ def test_websocket_subprotocol():
 
 ## 异步测试 WebSocket
 
-由于 WebSocket 是异步的，您也可以使用异步测试：
+由于 WebSocket 是异步的,您也可以使用异步测试:
 
 ```python
 import pytest
@@ -245,7 +245,7 @@ async def test_async_websocket():
 
 ## 性能测试
 
-您可以进行简单的性能测试：
+您可以进行简单的性能测试:
 
 ```python
 import time
@@ -276,20 +276,20 @@ def test_websocket_performance():
             end_time = time.time()
             duration = end_time - start_time
 
-            # 验证性能（示例：100条消息应在1秒内完成）
+            # 验证性能(示例:100条消息应在1秒内完成)
             assert duration < 1.0, f"WebSocket performance test failed: {duration}s"
 ```
 
 ## 注意事项
 
-1. **WebSocket 测试是同步的**：即使在异步 FastAPI 应用程序中，`TestClient` 的 WebSocket 测试也是同步的。
+1. **WebSocket 测试是同步的**:即使在异步 FastAPI 应用程序中,`TestClient` 的 WebSocket 测试也是同步的.
 
-2. **上下文管理**：始终使用 `with` 语句来管理 WebSocket 连接，以确保正确清理。
+2. **上下文管理**:始终使用 `with` 语句来管理 WebSocket 连接,以确保正确清理.
 
-3. **超时处理**：对于可能需要很长时间的操作，考虑设置超时。
+3. **超时处理**:对于可能需要很长时间的操作,考虑设置超时.
 
-4. **隔离测试**：每个测试都应该使用新的 WebSocket 连接，以避免测试之间的状态泄漏。
+4. **隔离测试**:每个测试都应该使用新的 WebSocket 连接,以避免测试之间的状态泄漏.
 
 ## 更多信息
 
-有关更多详细信息，请查看 FastAPI 的测试文档。
+有关更多详细信息,请查看 FastAPI 的测试文档.

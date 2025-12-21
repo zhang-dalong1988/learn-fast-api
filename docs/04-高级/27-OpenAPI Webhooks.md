@@ -1,10 +1,10 @@
 # OpenAPI Webhooks - FastAPI
 
-Webhooks 允许外部系统在特定事件发生时向您的 FastAPI 应用程序发送 HTTP 请求。这与回调相反，回调是您的应用程序向外部系统发送请求。
+Webhooks 允许外部系统在特定事件发生时向您的 FastAPI 应用程序发送 HTTP 请求.这与回调相反,回调是您的应用程序向外部系统发送请求.
 
 ## 什么是 Webhooks
 
-Webhook 是一种"入站"请求，由外部服务在特定事件发生时主动推送给您的应用程序。这对于集成第三方服务非常有用，例如：
+Webhook 是一种"入站"请求,由外部服务在特定事件发生时主动推送给您的应用程序.这对于集成第三方服务非常有用,例如:
 - GitHub 推送通知
 - Stripe 支付事件
 - Slack 交互消息
@@ -12,7 +12,7 @@ Webhook 是一种"入站"请求，由外部服务在特定事件发生时主动�
 
 ## 定义 Webhooks
 
-在 FastAPI 中，您可以通过定义常规的端点来接收 webhook，并在 OpenAPI 文档中声明它们。
+在 FastAPI 中,您可以通过定义常规的端点来接收 webhook,并在 OpenAPI 文档中声明它们.
 
 ### 基本示例
 
@@ -45,9 +45,9 @@ async def github_webhook(
     """
     接收 GitHub Webhook 事件
 
-    - **x_github_event**: 事件类型（如 "push", "pull_request"）
+    - **x_github_event**: 事件类型(如 "push", "pull_request")
     - **x_github_delivery**: 事件的唯一标识符
-    - **x_hub_signature_256**: HMAC 签名，用于验证请求
+    - **x_hub_signature_256**: HMAC 签名,用于验证请求
     """
     # 验证签名
     webhook_secret = "your-github-webhook-secret"
@@ -75,7 +75,7 @@ async def handle_push_event(event: GitHubPushEvent):
     """处理 GitHub push 事件"""
     print(f"Received push event on {event['ref']}")
     # 在这里添加您的业务逻辑
-    # 例如：触发 CI/CD 流水线、更新数据库等
+    # 例如:触发 CI/CD 流水线、更新数据库等
 
 
 async def handle_pull_request_event(event: dict):
@@ -135,7 +135,7 @@ def custom_openapi():
 app.openapi = custom_openapi
 ```
 
-## 支付 Webhook 示例（Stripe）
+## 支付 Webhook 示例(Stripe)
 
 ```python
 from fastapi import FastAPI, Request, Header, HTTPException
@@ -173,7 +173,7 @@ async def stripe_webhook(
     """
     接收 Stripe Webhook 事件
 
-    支持的事件类型：
+    支持的事件类型:
     - payment_intent.succeeded
     - payment_intent.payment_failed
     - charge.succeeded
@@ -283,7 +283,7 @@ async def slack_command_webhook(command: SlackCommand):
     """
     处理 Slack Slash Commands
 
-    例如：/weather <city>
+    例如:/weather <city>
     """
     if command.command == "/weather":
         return handle_weather_command(command)
@@ -310,7 +310,7 @@ def handle_weather_command(command: SlackCommand):
 @app.post("/webhooks/slack/interactive")
 async def slack_interactive_webhook(request: Request):
     """
-    处理 Slack Interactive Components（按钮、选择器等）
+    处理 Slack Interactive Components(按钮、选择器等)
     """
     form_data = await request.form()
     payload = form_data.get("payload")
@@ -337,7 +337,7 @@ import asyncio
 app = FastAPI()
 
 
-# Webhook 配置数据库（实际使用中应该是真正的数据库）
+# Webhook 配置数据库(实际使用中应该是真正的数据库)
 webhook_subscriptions: Dict[str, Dict] = {}
 webhook_events: List[Dict] = []
 
@@ -409,7 +409,7 @@ async def send_webhook(url: str, event: WebhookEvent, secret: Optional[str] = No
 
     payload = event.dict()
 
-    # 如果有密钥，添加签名
+    # 如果有密钥,添加签名
     if secret:
         import hmac
         import hashlib
@@ -429,7 +429,7 @@ async def send_webhook(url: str, event: WebhookEvent, secret: Optional[str] = No
             print(f"Failed to send webhook to {url}: {e}")
 
 
-# API 端点，用于触发事件
+# API 端点,用于触发事件
 @app.post("/trigger-event")
 async def trigger_event(event: WebhookEvent, background_tasks: BackgroundTasks):
     """触发一个 webhook 事件"""

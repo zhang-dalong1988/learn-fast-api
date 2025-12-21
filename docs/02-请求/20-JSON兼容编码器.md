@@ -1,14 +1,14 @@
 # JSON 兼容编码器
 
-有些数据类型（如 `datetime` 对象）不能直接转换为 JSON。
+有些数据类型(如 `datetime` 对象)不能直接转换为 JSON.
 
-**FastAPI** 使用 `jsonable_encoder` 将不能转换为 JSON 的数据类型转换为兼容的版本。
+**FastAPI** 使用 `jsonable_encoder` 将不能转换为 JSON 的数据类型转换为兼容的版本.
 
 ## 何时使用 `jsonable_encoder`
 
-当您需要将数据转换为 JSON 兼容格式时，可以使用 `jsonable_encoder`。
+当您需要将数据转换为 JSON 兼容格式时,可以使用 `jsonable_encoder`.
 
-常见的使用场景包括：
+常见的使用场景包括:
 
 - 将 Pydantic 模型转换为 JSON
 - 将 `datetime` 对象转换为字符串
@@ -75,7 +75,7 @@ async def update_item(item_id: str, item: Item):
 
 ## 转换规则
 
-`jsonable_encoder` 会进行以下转换：
+`jsonable_encoder` 会进行以下转换:
 
 ### Pydantic 模型
 
@@ -152,7 +152,7 @@ encoded = jsonable_encoder(color)
 
 ## 嵌套数据类型
 
-`jsonable_encoder` 可以处理嵌套的数据结构：
+`jsonable_encoder` 可以处理嵌套的数据结构:
 
 ```python
 from datetime import datetime
@@ -219,7 +219,7 @@ async def read_item(item_id: str):
 
 ## 自定义转换器
 
-如果您需要自定义转换逻辑，可以创建自定义的 JSON 编码器：
+如果您需要自定义转换逻辑,可以创建自定义的 JSON 编码器:
 
 ```python
 from fastapi import FastAPI
@@ -248,17 +248,17 @@ async def read_item(item_id: str):
 
 ## 注意事项
 
-1. **性能考虑**：对于大型数据结构，`jsonable_encoder` 可能需要一些时间来转换数据。
+1. **性能考虑**:对于大型数据结构,`jsonable_encoder` 可能需要一些时间来转换数据.
 
-2. **精度丢失**：`Decimal` 类型的数据会被转换为浮点数，可能会丢失精度。
+2. **精度丢失**:`Decimal` 类型的数据会被转换为浮点数,可能会丢失精度.
 
-3. **数据类型改变**：原始的数据类型会改变，例如 `datetime` 对象会变成字符串。
+3. **数据类型改变**:原始的数据类型会改变,例如 `datetime` 对象会变成字符串.
 
-4. **深度嵌套**：对于深度嵌套的数据结构，转换可能会递归进行。
+4. **深度嵌套**:对于深度嵌套的数据结构,转换可能会递归进行.
 
 ## 总结
 
-`jsonable_encoder` 是 **FastAPI** 的一个实用工具，用于将不兼容 JSON 的数据类型转换为 JSON 兼容的格式。它：
+`jsonable_encoder` 是 **FastAPI** 的一个实用工具,用于将不兼容 JSON 的数据类型转换为 JSON 兼容的格式.它:
 
 - 将 Pydantic 模型转换为字典
 - 将 `datetime` 对象转换为字符串
@@ -266,4 +266,4 @@ async def read_item(item_id: str):
 - 将 `Decimal` 转换为浮点数
 - 处理嵌套的数据结构
 
-这个工具在需要序列化数据到 JSON 或保存到数据库时非常有用。
+这个工具在需要序列化数据到 JSON 或保存到数据库时非常有用.

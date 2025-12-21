@@ -1,12 +1,12 @@
 # 简单 OAuth2 密码流
 
-现在让我们看看如何使用 OAuth2 密码流来实现安全认证。
+现在让我们看看如何使用 OAuth2 密码流来实现安全认证.
 
-我们将使用 FastAPI 提供的安全工具来处理认证和授权。
+我们将使用 FastAPI 提供的安全工具来处理认证和授权.
 
 ## OAuth2PasswordRequestForm
 
-FastAPI 提供了一个实用工具类 `OAuth2PasswordRequestForm`，用于处理 OAuth2 密码流中的表单数据。
+FastAPI 提供了一个实用工具类 `OAuth2PasswordRequestForm`,用于处理 OAuth2 密码流中的表单数据.
 
 ```python
 from fastapi.security import OAuth2PasswordRequestForm
@@ -16,17 +16,17 @@ async def login(form_data: Annotated[OAuth2PasswordRequestForm, Depends()]):
     # ...
 ```
 
-`OAuth2PasswordRequestForm` 包含以下字段：
+`OAuth2PasswordRequestForm` 包含以下字段:
 
-- `username`：字符串
-- `password`：字符串
-- `scope`：字符串，默认为空字符串
-- `client_id`：可选字符串
-- `client_secret`：可选字符串
+- `username`:字符串
+- `password`:字符串
+- `scope`:字符串,默认为空字符串
+- `client_id`:可选字符串
+- `client_secret`:可选字符串
 
 ## 完整示例
 
-这是一个完整的示例，展示了如何实现 OAuth2 密码流：
+这是一个完整的示例,展示了如何实现 OAuth2 密码流:
 
 ```python
 from datetime import datetime, timedelta
@@ -132,25 +132,25 @@ async def login_for_access_token(
 
 ### 1. 获取令牌
 
-用户发送一个 POST 请求到 `/token` 端点，表单数据包含：
+用户发送一个 POST 请求到 `/token` 端点,表单数据包含:
 
 - `username=johndoe`
 - `password=secret`
 
-`OAuth2PasswordRequestForm` 会自动从请求体中提取这些数据。
+`OAuth2PasswordRequestForm` 会自动从请求体中提取这些数据.
 
 ### 2. 验证用户
 
-`authenticate_user` 函数：
+`authenticate_user` 函数:
 
 - 从数据库中获取用户
 - 验证密码是否正确
-- 如果验证成功，返回用户对象
-- 如果验证失败，返回 False
+- 如果验证成功,返回用户对象
+- 如果验证失败,返回 False
 
 ### 3. 创建访问令牌
 
-如果用户验证成功，我们创建一个访问令牌：
+如果用户验证成功,我们创建一个访问令牌:
 
 ```python
 access_token_expires = timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
@@ -161,7 +161,7 @@ access_token = create_access_token(
 
 ### 4. 返回令牌
 
-返回包含访问令牌和令牌类型的响应：
+返回包含访问令牌和令牌类型的响应:
 
 ```python
 return {"access_token": access_token, "token_type": "bearer"}
@@ -169,7 +169,7 @@ return {"access_token": access_token, "token_type": "bearer"}
 
 ## 使用令牌
 
-现在客户端可以使用这个令牌来访问受保护的端点。客户端需要在请求头中包含：
+现在客户端可以使用这个令牌来访问受保护的端点.客户端需要在请求头中包含:
 
 ```
 Authorization: Bearer <access_token>
@@ -179,28 +179,28 @@ Authorization: Bearer <access_token>
 
 ### 表单数据
 
-`OAuth2PasswordRequestForm` 期望表单数据而不是 JSON。这意味着：
+`OAuth2PasswordRequestForm` 期望表单数据而不是 JSON.这意味着:
 
 - Content-Type 必须是 `application/x-www-form-urlencoded`
 - 数据应该像 HTML 表单一样发送
 
-这在 OAuth2 规范中是必需的。
+这在 OAuth2 规范中是必需的.
 
-### 范围（Scope）
+### 范围(Scope)
 
-`OAuth2PasswordRequestForm` 还支持 `scope` 字段，这是一个用空格分隔的字符串列表。
+`OAuth2PasswordRequestForm` 还支持 `scope` 字段,这是一个用空格分隔的字符串列表.
 
-例如，如果你发送：
+例如,如果你发送:
 
 ```
 scope=me items:read items:write
 ```
 
-那么 `form_data.scopes` 将是一个包含 `["me", "items:read", "items:write"]` 的列表。
+那么 `form_data.scopes` 将是一个包含 `["me", "items:read", "items:write"]` 的列表.
 
 ## 完整的工作示例
 
-让我们添加一些受保护的端点：
+让我们添加一些受保护的端点:
 
 ```python
 async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]):
@@ -240,7 +240,7 @@ async def read_users_me(
 
 ## 如何测试它
 
-1. 运行应用程序：
+1. 运行应用程序:
    ```bash
    uvicorn main:app --reload
    ```
@@ -251,37 +251,37 @@ async def read_users_me(
 
 4. 点击 "Try it out"
 
-5. 输入用户名和密码：
+5. 输入用户名和密码:
    - username: `johndoe`
    - password: `secret`
 
-6. 执行请求，你会收到令牌
+6. 执行请求,你会收到令牌
 
 7. 点击页面顶部的 "Authorize" 按钮
 
 8. 在 "Value" 字段中输入 `Bearer <你的令牌>`
 
-9. 现在你可以访问受保护的端点，如 `/users/me`
+9. 现在你可以访问受保护的端点,如 `/users/me`
 
 ## 完整的认证流程
 
 1. 用户使用用户名和密码调用 `/token` 端点
 2. 应用程序验证凭据
-3. 如果凭据有效，应用程序返回一个访问令牌
+3. 如果凭据有效,应用程序返回一个访问令牌
 4. 客户端存储令牌
-5. 对于后续请求，客户端在 `Authorization` 头中包含令牌
-6. 应用程序验证令牌，如果有效，处理请求
-7. 如果令牌无效，应用程序返回 401 Unauthorized 错误
+5. 对于后续请求,客户端在 `Authorization` 头中包含令牌
+6. 应用程序验证令牌,如果有效,处理请求
+7. 如果令牌无效,应用程序返回 401 Unauthorized 错误
 
 ## 安全注意事项
 
 ### 使用 HTTPS
 
-在生产环境中，始终使用 HTTPS 而不是 HTTP。HTTPS 可以加密通信，防止令牌在传输过程中被窃听。
+在生产环境中,始终使用 HTTPS 而不是 HTTP.HTTPS 可以加密通信,防止令牌在传输过程中被窃听.
 
 ### 令牌过期
 
-令牌应该有过期时间。在我们的示例中，令牌在 30 分钟后过期：
+令牌应该有过期时间.在我们的示例中,令牌在 30 分钟后过期:
 
 ```python
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
@@ -289,7 +289,7 @@ ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
 ### 密码哈希
 
-永远不要以明文形式存储密码。始终使用哈希算法（如 bcrypt）来存储密码：
+永远不要以明文形式存储密码.始终使用哈希算法(如 bcrypt)来存储密码:
 
 ```python
 hashed_password = get_password_hash(password)
@@ -297,7 +297,7 @@ hashed_password = get_password_hash(password)
 
 ### 密钥安全
 
-`SECRET_KEY` 应该是强随机值，并且应该保密。不要在代码中硬编码它，而是使用环境变量或密钥管理服务。
+`SECRET_KEY` 应该是强随机值,并且应该保密.不要在代码中硬编码它,而是使用环境变量或密钥管理服务.
 
 ```python
 import os
@@ -306,12 +306,12 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 
 ## 总结
 
-我们实现了：
+我们实现了:
 
 - OAuth2 密码流认证
 - 使用 `OAuth2PasswordRequestForm` 处理登录表单
 - 生成和验证 JWT 令牌
-- 保护端点，只允许认证用户访问
+- 保护端点,只允许认证用户访问
 - 在响应中不包含敏感信息
 
-在下一节中，我们将看到如何进一步改进这个实现，包括添加更多的安全特性。
+在下一节中,我们将看到如何进一步改进这个实现,包括添加更多的安全特性.

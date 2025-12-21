@@ -1,8 +1,8 @@
 # SQL 数据库
 
-FastAPI 不直接与数据库交互，但你可以使用任何数据库库，如 SQLAlchemy、Databases、Tortoise-ORM 等。
+FastAPI 不直接与数据库交互,但你可以使用任何数据库库,如 SQLAlchemy、Databases、Tortoise-ORM 等.
 
-本指南将展示如何使用 SQLAlchemy（最流行的 Python ORM）来集成 SQL 数据库。
+本指南将展示如何使用 SQLAlchemy(最流行的 Python ORM)来集成 SQL 数据库.
 
 ## 安装依赖
 
@@ -19,7 +19,7 @@ pip install sqlite3          # SQLite (通常已内置)
 
 ### 1. 创建数据库模型
 
-使用 SQLAlchemy 创建模型：
+使用 SQLAlchemy 创建模型:
 
 ```python
 from sqlalchemy import Column, Integer, String, Boolean
@@ -74,7 +74,7 @@ def get_db():
 
 ## Pydantic 模型
 
-创建 Pydantic 模型用于数据验证和序列化：
+创建 Pydantic 模型用于数据验证和序列化:
 
 ```python
 from pydantic import BaseModel
@@ -95,7 +95,7 @@ class User(UserBase):
 
 ## CRUD 操作
 
-创建基本的 CRUD 操作：
+创建基本的 CRUD 操作:
 
 ```python
 from sqlalchemy.orm import Session
@@ -121,7 +121,7 @@ def create_user(db: Session, user: UserCreate):
 
 ## 路由操作
 
-创建 FastAPI 路由操作：
+创建 FastAPI 路由操作:
 
 ```python
 from fastapi import Depends, FastAPI, HTTPException
@@ -181,7 +181,7 @@ class Item(Base):
 
 ## 异步数据库操作
 
-如果你使用异步数据库驱动（如 `asyncpg` 或 `aiomysql`），可以使用异步方式：
+如果你使用异步数据库驱动(如 `asyncpg` 或 `aiomysql`),可以使用异步方式:
 
 ```python
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
@@ -215,7 +215,7 @@ async def async_read_user(user_id: int, async_db: AsyncSession = Depends(get_asy
 
 ## 使用 Alembic 进行数据库迁移
 
-Alembic 是 SQLAlchemy 的数据库迁移工具：
+Alembic 是 SQLAlchemy 的数据库迁移工具:
 
 ```bash
 # 安装 Alembic
@@ -235,7 +235,7 @@ alembic upgrade head
 
 ## 连接池配置
 
-配置数据库连接池以提高性能：
+配置数据库连接池以提高性能:
 
 ```python
 from sqlalchemy import create_engine
@@ -252,17 +252,17 @@ engine = create_engine(
 
 ## 最佳实践
 
-1. **使用连接池**：配置适当的连接池参数以提高性能
-2. **异步操作**：对于高并发应用，考虑使用异步数据库操作
-3. **使用迁移工具**：使用 Alembic 管理数据库架构变更
-4. **环境变量**：使用环境变量存储数据库连接信息
-5. **错误处理**：适当处理数据库连接错误
-6. **索引**：为经常查询的字段创建索引
-7. **事务管理**：确保正确提交或回滚事务
+1. **使用连接池**:配置适当的连接池参数以提高性能
+2. **异步操作**:对于高并发应用,考虑使用异步数据库操作
+3. **使用迁移工具**:使用 Alembic 管理数据库架构变更
+4. **环境变量**:使用环境变量存储数据库连接信息
+5. **错误处理**:适当处理数据库连接错误
+6. **索引**:为经常查询的字段创建索引
+7. **事务管理**:确保正确提交或回滚事务
 
 ## 示例环境变量
 
-使用 `.env` 文件管理配置：
+使用 `.env` 文件管理配置:
 
 ```bash
 # .env
@@ -281,7 +281,7 @@ SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
 
 ## 总结
 
-FastAPI 可以与任何 SQL 数据库很好地集成。SQLAlchemy 提供了强大的 ORM 功能，使得数据库操作更加 Pythonic。记住：
+FastAPI 可以与任何 SQL 数据库很好地集成.SQLAlchemy 提供了强大的 ORM 功能,使得数据库操作更加 Pythonic.记住:
 
 1. 使用依赖注入管理数据库会话
 2. 使用 Pydantic 模型进行数据验证

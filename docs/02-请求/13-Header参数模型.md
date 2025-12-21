@@ -1,12 +1,12 @@
 # Header 参数模型
 
-当有多个 header 参数时，你可能不想为每个 header 参数都声明一个单独的函数参数。
+当有多个 header 参数时,你可能不想为每个 header 参数都声明一个单独的函数参数.
 
-相反，你可以使用 Pydantic 模型来声明所有 header 参数。
+相反,你可以使用 Pydantic 模型来声明所有 header 参数.
 
 ## 使用 Pydantic 模型
 
-首先，导入 Pydantic 的 `BaseModel` 和 FastAPI 的 `Header`：
+首先,导入 Pydantic 的 `BaseModel` 和 FastAPI 的 `Header`:
 
 ```python
 from typing import Annotated
@@ -50,15 +50,15 @@ async def read_items(headers: Headers = Header()):
 
 ## 工作原理
 
-FastAPI 会检查 header 参数，并将它们转换为 Pydantic 模型。
+FastAPI 会检查 header 参数,并将它们转换为 Pydantic 模型.
 
-在这个例子中：
+在这个例子中:
 - `host` 是必需的
 - `user_agent` 是必需的
 - `accept` 是必需的
 - `accept_language` 是可选的
 
-如果客户端发送了这些 headers：
+如果客户端发送了这些 headers:
 
 ```
 Host: example.com
@@ -67,7 +67,7 @@ Accept: application/json
 Accept-Language: en-US,en;q=0.9
 ```
 
-Pydantic 模型会创建如下实例：
+Pydantic 模型会创建如下实例:
 
 ```python
 Headers(
@@ -80,7 +80,7 @@ Headers(
 
 ## Header 名称转换
 
-记住，FastAPI 会自动将下划线转换为连字符：
+记住,FastAPI 会自动将下划线转换为连字符:
 
 ```python
 from typing import Annotated
@@ -118,7 +118,7 @@ async def read_items(headers: Headers = Header()):
 
 ## 验证
 
-你也可以获得 Pydantic 的所有验证功能：
+你也可以获得 Pydantic 的所有验证功能:
 
 ```python
 from typing import Annotated
@@ -158,7 +158,7 @@ async def read_items(headers: Headers = Header()):
 
 ## 嵌套模型
 
-你还可以使用嵌套的 Pydantic 模型来组织相关的 headers：
+你还可以使用嵌套的 Pydantic 模型来组织相关的 headers:
 
 ```python
 from typing import Annotated

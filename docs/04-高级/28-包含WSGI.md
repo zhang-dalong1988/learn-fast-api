@@ -1,17 +1,17 @@
-# 包含 WSGI（Flask、Django 等）- FastAPI
+# 包含 WSGI(Flask、Django 等)- FastAPI
 
-FastAPI 运行在 ASGI（Asynchronous Server Gateway Interface）上。有时您可能需要在同一个应用程序中同时运行 ASGI 应用（如 FastAPI）和 WSGI 应用（如 Flask、Django）。
+FastAPI 运行在 ASGI(Asynchronous Server Gateway Interface)上.有时您可能需要在同一个应用程序中同时运行 ASGI 应用(如 FastAPI)和 WSGI 应用(如 Flask、Django).
 
 ## 什么是 ASGI 和 WSGI
 
-- **WSGI**：Python Web 服务器网关接口，是同步的，用于传统的 Python Web 框架如 Flask 和 Django。
-- **ASGI**：异步服务器网关接口，是异步的，支持现代异步框架如 FastAPI、Starlette 等。
+- **WSGI**:Python Web 服务器网关接口,是同步的,用于传统的 Python Web 框架如 Flask 和 Django.
+- **ASGI**:异步服务器网关接口,是异步的,支持现代异步框架如 FastAPI、Starlette 等.
 
 ## 使用 `WSGIMiddleware`
 
-FastAPI 提供了 `WSGIMiddleware` 来包装 WSGI 应用，使其能在 ASGI 服务器上运行。
+FastAPI 提供了 `WSGIMiddleware` 来包装 WSGI 应用,使其能在 ASGI 服务器上运行.
 
-### 基本示例：包含 Flask 应用
+### 基本示例:包含 Flask 应用
 
 ```python
 from fastapi import FastAPI
@@ -21,7 +21,7 @@ from flask import Flask, request, jsonify
 # 创建 FastAPI 应用
 app = FastAPI()
 
-# 创建 Flask 应用（WSGI）
+# 创建 Flask 应用(WSGI)
 flask_app = Flask(__name__)
 
 @flask_app.route("/flask")
@@ -36,7 +36,7 @@ def read_root():
 app.mount("/flask-app", WSGIMiddleware(flask_app))
 ```
 
-现在您可以访问：
+现在您可以访问:
 - `/fastapi` - FastAPI 路由
 - `/flask-app/flask` - Flask 路由
 
@@ -67,7 +67,7 @@ app.mount("/django", WSGIMiddleware(django_app))
 
 ## 子应用挂载
 
-您也可以使用 `app.mount()` 来挂载完整的 FastAPI 子应用：
+您也可以使用 `app.mount()` 来挂载完整的 FastAPI 子应用:
 
 ```python
 from fastapi import FastAPI
@@ -109,7 +109,7 @@ import time
 
 app = FastAPI()
 
-# WSGI 应用（同步）
+# WSGI 应用(同步)
 flask_app = Flask(__name__)
 
 @flask_app.route("/sync-task")
@@ -118,7 +118,7 @@ def sync_task():
     time.sleep(1)
     return jsonify({"result": "Synchronous task completed"})
 
-# ASGI 应用（异步）
+# ASGI 应用(异步)
 @app.get("/async-task")
 async def async_task():
     # 模拟异步任务
@@ -133,12 +133,12 @@ app.mount("/flask", WSGIMiddleware(flask_app))
 
 ### WSGI 应用的请求限制
 
-当 WSGI 应用通过 WSGIMiddleware 运行时，有一些限制：
+当 WSGI 应用通过 WSGIMiddleware 运行时,有一些限制:
 
 1. 流式请求体不能使用
 2. 某些 WSGI 特性可能不完全可用
 
-### 示例：处理表单数据
+### 示例:处理表单数据
 
 ```python
 from fastapi import FastAPI, Request, Form
@@ -363,15 +363,15 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 
 ## 常见用例
 
-1. **逐步迁移**：将旧的 WSGI 应用逐步迁移到 FastAPI
-2. **集成遗留系统**：与现有的 WSGI 应用集成
-3. **混合架构**：利用不同框架的优势
+1. **逐步迁移**:将旧的 WSGI 应用逐步迁移到 FastAPI
+2. **集成遗留系统**:与现有的 WSGI 应用集成
+3. **混合架构**:利用不同框架的优势
 
 ## 限制和注意事项
 
-1. **功能限制**：某些 WSGI 特性可能不完全可用
-2. **性能影响**：WSGI 中间件会带来一些开销
-3. **调试复杂性**：调试可能更复杂
+1. **功能限制**:某些 WSGI 特性可能不完全可用
+2. **性能影响**:WSGI 中间件会带来一些开销
+3. **调试复杂性**:调试可能更复杂
 
 ## 更多信息
 

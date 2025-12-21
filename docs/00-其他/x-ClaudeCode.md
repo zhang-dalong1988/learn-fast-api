@@ -1,6 +1,6 @@
 # Claude Code 快速上手指南
 
-Claude Code 是 Anthropic 官方的 CLI 工具，让开发者能够通过命令行与 Claude AI 交互来完成软件工程任务。
+Claude Code 是 Anthropic 官方的 CLI 工具,让开发者能够通过命令行与 Claude AI 交互来完成软件工程任务.
 
 ## 1. 安装
 
@@ -62,7 +62,7 @@ claude-code "在 main.py 中添加一个用户登录接口"
 claude-code "修复 items 接口的 500 错误"
 
 # 重构代码
-claude-code "重构 get_items 函数，使其更高效"
+claude-code "重构 get_items 函数,使其更高效"
 ```
 
 ### 3.3 项目管理
@@ -79,7 +79,7 @@ claude-code "为 API 接口生成文档"
 
 ### 4.1 Slash 命令
 
-在 Claude Code 中使用斜杠命令快速执行特定任务：
+在 Claude Code 中使用斜杠命令快速执行特定任务:
 
 #### 基础命令
 
@@ -95,20 +95,20 @@ claude-code "为 API 接口生成文档"
 #### 代码管理
 
 ```bash
-/commit [message]   # 创建 git commit，可指定提交信息
+/commit [message]   # 创建 git commit,可指定提交信息
 /branch <name>      # 创建新分支
 /checkout <branch>  # 切换分支
 /merge <branch>     # 合并分支
 /status            # 查看 git 状态
 /diff              # 查看代码变更
-/log [n]           # 查看 git 日志，默认最近10条
+/log [n]           # 查看 git 日志,默认最近10条
 /revert <commit>   # 回滚到指定提交
 ```
 
 #### 代码审查与优化
 
 ```bash
-/review [file]      # 代码审查，可指定文件
+/review [file]      # 代码审查,可指定文件
 /refactor <func>    # 重构指定函数或代码块
 /optimize [file]    # 优化代码性能
 /format [files]     # 格式化代码文件
@@ -119,7 +119,7 @@ claude-code "为 API 接口生成文档"
 #### 测试与构建
 
 ```bash
-/test [file]        # 运行测试，可指定文件
+/test [file]        # 运行测试,可指定文件
 /test:watch         # 监控模式运行测试
 /test:coverage      # 生成测试覆盖率报告
 /build              # 构建项目
@@ -205,7 +205,7 @@ claude-code "为 API 接口生成文档"
 
 ### 4.2 Hook 配置
 
-创建 `.claude/hooks.json` 配置自动化任务：
+创建 `.claude/hooks.json` 配置自动化任务:
 
 ```json
 {
@@ -217,7 +217,7 @@ claude-code "为 API 接口生成文档"
 
 ### 4.3 MCP 服务器
 
-使用 MCP (Model Context Protocol) 扩展功能：
+使用 MCP (Model Context Protocol) 扩展功能:
 
 ```bash
 # 安装 MCP 服务器
@@ -255,11 +255,11 @@ git diff HEAD~1
 
 ### 5.4 使用模板
 
-创建 `.claude/templates/` 目录存放常用提示：
+创建 `.claude/templates/` 目录存放常用提示:
 
 ```text
 # .claude/templates/api-endpoint.txt
-为 FastAPI 项目创建一个 {model} 的 CRUD 接口，包括：
+为 FastAPI 项目创建一个 {model} 的 CRUD 接口,包括:
 - GET /{model}/
 - GET /{model}/{id}
 - POST /{model}/
@@ -280,13 +280,13 @@ git diff HEAD~1
 
 #### 文本选择
 
-- **Ctrl + Shift + A** - 全选文本（在大多数终端环境中）
+- **Ctrl + Shift + A** - 全选文本(在大多数终端环境中)
 - 鼠标拖拽 - 标准文本选择
 - **Shift + 方向键** - 扩展选择范围
 
 #### 对话框控制
 
-- **数字键**（1, 2, 3...）- 选择带编号的选项
+- **数字键**(1, 2, 3...)- 选择带编号的选项
 - **方向键** - 在选项间导航
 - **Enter** - 确认选择
 - **Esc 或 Ctrl + C** - 取消对话框
@@ -301,27 +301,27 @@ git diff HEAD~1
 
 ### 6.3 快捷键参考
 
-更多快捷键信息请参考官方文档：
+更多快捷键信息请参考官方文档:
 
 - [Claude Code Keyboard Shortcuts](https://docs.anthropic.com/en/docs/claude-code/keyboard-shortcuts)
 
 ## 7. 常见问题
 
-### 7.1 Q: 如何让 Claude 理解特定项目的约定？
+### 7.1 Q: 如何让 Claude 理解特定项目的约定?
 
-A: 在项目根目录创建 `.claude/context.md` 文件，描述项目结构和约定。
+A: 在项目根目录创建 `.claude/context.md` 文件,描述项目结构和约定.
 
-### 7.2 Q: 可以同时处理多个文件吗？
+### 7.2 Q: 可以同时处理多个文件吗?
 
-A: 可以，使用 `@file` 语法引用文件：
+A: 可以,使用 `@file` 语法引用文件:
 
 ```
-请根据 @models.py 中的数据模型，更新 @routes.py 中的接口
+请根据 @models.py 中的数据模型,更新 @routes.py 中的接口
 ```
 
-### 7.3 Q: 如何保护敏感信息？
+### 7.3 Q: 如何保护敏感信息?
 
-A: Claude Code 会自动忽略 `.env`、`.key` 等敏感文件，也可以在 `.claudeignore` 中指定要忽略的文件。
+A: Claude Code 会自动忽略 `.env`、`.key` 等敏感文件,也可以在 `.claudeignore` 中指定要忽略的文件.
 
 ## 8. 示例工作流
 
@@ -332,7 +332,7 @@ A: Claude Code 会自动忽略 `.env`、`.key` 等敏感文件，也可以在 `.
 claude-code
 
 # 2. 创建新模型
-"创建一个 User 模型，包含 id、name、email 字段"
+"创建一个 User 模型,包含 id、name、email 字段"
 
 # 3. 生成 CRUD 接口
 "为 User 模型创建完整的 CRUD API"
@@ -341,7 +341,7 @@ claude-code
 "为用户 API 编写 pytest 测试用例"
 
 # 5. 生成文档
-"更新 API 文档，包含用户相关的接口"
+"更新 API 文档,包含用户相关的接口"
 
 # 6. 代码审查
 /review
