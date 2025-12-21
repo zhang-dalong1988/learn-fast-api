@@ -232,6 +232,8 @@ The MCP server has **zero external dependencies** - it uses only Node.js built-i
    - 添加章节序号，保持文档连续性
    - 包含实际的代码示例和解释
    - 同类代码仅保留 Pyhton 版本较高的示例
+   - 代码示例 (代码片段) 添加注释, 便于学习和理解关键内容
+   - 辅助生成的注释, 润色内容不可以使用全角符号, 无论是誊写的原文还是润色后的内容都使用半角英文符号
 
 ## Troubleshooting
 
