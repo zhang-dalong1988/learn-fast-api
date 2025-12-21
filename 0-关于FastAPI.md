@@ -30,7 +30,6 @@ FastAPI 由 Sebastián Ramírez（tiangolo）在 2018 年底开始开发，并�
 FastAPI 并不是从零开始构建的，它建立在两个强大的现有项目之上：
 
 1. **Starlette**（2018 年发布）：
-
    - 一个轻量级的 ASGI 框架
    - 提供高性能的异步 Web 功能
    - FastAPI 继承了其路由、中间件和请求处理机制
@@ -54,32 +53,31 @@ FastAPI 并不是从零开始构建的，它建立在两个强大的现有项目
 
 根据 TechEmpower 的基准测试，FastAPI 在性能方面表现出色：
 
-| 框架      | 性能（请求/秒） | 相对性能 |
-| --------- | --------------- | -------- |
-| FastAPI   | ~200,000        | 100%     |
-| Starlette | ~210,000        | 105%     |
-| Sanic     | ~150,000        | 75%      |
-| Flask     | ~35,000         | 18%      |
-| Django    | ~30,000         | 15%      |
+| 框架 | 性能（请求/秒） | 相对性能 |
+|------|----------------|----------|
+| FastAPI | ~200,000 | 100% |
+| Starlette | ~210,000 | 105% |
+| Sanic | ~150,000 | 75% |
+| Flask | ~35,000 | 18% |
+| Django | ~30,000 | 15% |
 
-_注：具体数值取决于硬件和测试配置，仅供参考_
+*注：具体数值取决于硬件和测试配置，仅供参考*
 
 ### 3.2 功能特性对比
 
-| 特性     | FastAPI                | Django        | Flask       | Tornado     | Sanic       |
-| -------- | ---------------------- | ------------- | ----------- | ----------- | ----------- |
-| 类型提示 | ✅ 原生支持            | ❌ 部分支持   | ❌ 需要扩展 | ❌ 需要扩展 | ❌ 部分支持 |
-| 自动文档 | ✅ OpenAPI/Swagger     | ❌ 需要扩展   | ❌ 需要扩展 | ❌ 需要扩展 | ❌ 需要扩展 |
-| 数据验证 | ✅ Pydantic            | ❌ 需要扩展   | ❌ 需要扩展 | ❌ 需要扩展 | ❌ 需要扩展 |
-| 异步支持 | ✅ 原生                | ✅ 3.0+       | ❌ 需要扩展 | ✅ 原生     | ✅ 原生     |
+| 特性 | FastAPI | Django | Flask | Tornado | Sanic |
+|------|---------|--------|-------|---------|-------|
+| 类型提示 | ✅ 原生支持 | ❌ 部分支持 | ❌ 需要扩展 | ❌ 需要扩展 | ❌ 部分支持 |
+| 自动文档 | ✅ OpenAPI/Swagger | ❌ 需要扩展 | ❌ 需要扩展 | ❌ 需要扩展 | ❌ 需要扩展 |
+| 数据验证 | ✅ Pydantic | ❌ 需要扩展 | ❌ 需要扩展 | ❌ 需要扩展 | ❌ 需要扩展 |
+| 异步支持 | ✅ 原生 | ✅ 3.0+ | ❌ 需要扩展 | ✅ 原生 | ✅ 原生 |
 | ORM 集成 | ✅ SQLAlchemy/Tortoise | ✅ Django ORM | ❌ 需要配置 | ❌ 需要配置 | ❌ 需要配置 |
-| 学习曲线 | 🟢 简单                | 🟡 中等       | 🟢 简单     | 🟡 中等     | 🟢 简单     |
-| 生态系统 | 🟡 成长中              | 🟢 成熟       | 🟢 成熟     | 🟢 成熟     | 🟡 成长中   |
+| 学习曲线 | 🟢 简单 | 🟡 中等 | 🟢 简单 | 🟡 中等 | 🟢 简单 |
+| 生态系统 | 🟡 成长中 | 🟢 成熟 | 🟢 成熟 | 🟢 成熟 | 🟡 成长中 |
 
 ### 3.3 代码对比
 
 #### FastAPI
-
 ```python
 from fastapi import FastAPI
 from pydantic import BaseModel
@@ -99,13 +97,11 @@ async def read_item(item_id: int, q: str | None = None):
 async def create_item(item: Item):
     return item
 ```
-
 - 代码行数：12 行
 - 包含完整的类型提示和数据验证
 - 自动生成 API 文档
 
 #### Flask
-
 ```python
 from flask import Flask, request, jsonify
 from marshmallow import Schema, fields
@@ -127,13 +123,11 @@ def create_item():
     item = ItemSchema().load(request.json)
     return jsonify(item)
 ```
-
 - 代码行数：20+ 行
 - 需要额外的 Marshmallow 库进行验证
 - 没有自动文档生成
 
 #### Django REST Framework
-
 ```python
 from rest_framework import serializers, viewsets, routers
 from django.urls import path, include
@@ -155,7 +149,6 @@ urlpatterns = [
     path('', include(router.urls)),
 ]
 ```
-
 - 需要多个文件（models.py, serializers.py, views.py, urls.py）
 - 强制使用 Django ORM
 - 学习曲线陡峭
@@ -165,13 +158,11 @@ urlpatterns = [
 ### 4.1 开发效率
 
 1. **类型提示即文档**：
-
    - 编写的代码同时是 API 文档
    - 自动生成 OpenAPI 规范
    - 支持 Swagger UI 和 ReDoc
 
 2. **智能提示和自动补全**：
-
    - 现代 IDE 提供 100% 的代码补全
    - 减少查找文档的时间
    - 减少拼写错误
@@ -184,13 +175,11 @@ urlpatterns = [
 ### 4.2 运行时优势
 
 1. **自动数据验证**：
-
    - 请求数据自动验证和转换
    - 详细的错误信息
    - 类型安全
 
 2. **高性能异步支持**：
-
    - 原生支持 async/await
    - 适合 I/O 密集型应用
    - 可处理大量并发连接
@@ -203,7 +192,6 @@ urlpatterns = [
 ### 4.3 团队协作优势
 
 1. **统一的数据规范**：
-
    - Pydantic 模型作为单一数据源
    - 前后端使用相同的数据定义
    - 减少沟通成本
