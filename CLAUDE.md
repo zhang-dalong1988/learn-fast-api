@@ -57,8 +57,8 @@ The project contains 7 custom Skills in `.claude/skills/`:
 When processing FastAPI documentation:
 
 1. **Translation Style**: Natural Chinese expression, avoid literal translation
-2. **Spacing**: Add spaces between Chinese and English/numbers/symbols (e.g., "学习 FastAPI 框架")
-3. **Punctuation**: Use full-width Chinese punctuation (，。？！：；)
+2. **Punctuation**: Use half-width punctuation (. , ? ! : ;)
+3. **Spacing**: Add spaces between Chinese and English/numbers/symbols, and before half-width punctuation marks for better readability
 4. **Technical Terms**: Keep English originals for proper nouns (FastAPI, Python, Pydantic, etc.)
 5. **Code Comments**: Explain "why" and context, not just "what"
 6. **Section Numbering**: Add sequential numbers (1, 2, 2.1, 2.2, etc.)
