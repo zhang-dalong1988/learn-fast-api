@@ -22,70 +22,87 @@ allowed-tools: WebFetch, Write, Read, Edit
 ## 章节列表
 
 ### Tutorial 部分（01-38）
-01. First Steps - https://fastapi.tiangolo.com/tutorial/first-steps/
-02. Path Parameters - https://fastapi.tiangolo.com/tutorial/path-params/
-03. Query Parameters - https://fastapi.tiangolo.com/tutorial/query-params/
-04. Request Body - https://fastapi.tiangolo.com/tutorial/body/
-05. Query Parameters and String Validations - https://fastapi.tiangolo.com/tutorial/query-params-str-validations/
-06. Path Parameters and Numeric Validations - https://fastapi.tiangolo.com/tutorial/path-params-numeric-validations/
-07. Body - Multiple Parameters - https://fastapi.tiangolo.com/tutorial/body-multiple-params/
-08. Body - Fields - https://fastapi.tiangolo.com/tutorial/body-fields/
-09. Body - Nested Models - https://fastapi.tiangolo.com/tutorial/body-nested-models/
-10. Extra Data Types - https://fastapi.tiangolo.com/tutorial/extra-data-types/
-11. Cookie Parameters - https://fastapi.tiangolo.com/tutorial/cookie-params/
-12. Header Parameters - https://fastapi.tiangolo.com/tutorial/header-params/
-13. Response Model - https://fastapi.tiangolo.com/tutorial/response-model/
-14. Extra Models - https://fastapi.tiangolo.com/tutorial/extra-models/
-15. Response Status Code - https://fastapi.tiangolo.com/tutorial/response-status-code/
-16. Form Data - https://fastapi.tiangolo.com/tutorial/request-forms/
-17. Request Files - https://fastapi.tiangolo.com/tutorial/request-files/
-18. Request Forms and Files - https://fastapi.tiangolo.com/tutorial/request-forms-and-files/
-19. Handling Errors - https://fastapi.tiangolo.com/tutorial/handling-errors/
-20. Path Operation Configuration - https://fastapi.tiangolo.com/tutorial/path-operation-configuration/
-21. JSON Compatible Encoder - https://fastapi.tiangolo.com/tutorial/encoder/
-22. Body - Updates - https://fastapi.tiangolo.com/tutorial/body-updates/
-23. Dependencies - First Steps - https://fastapi.tiangolo.com/tutorial/dependencies/
-24. Dependencies - `yield` Dependencies - https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-with-yield/
-25. Dependencies - Subdependencies - https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-in-path-operation-decorators/
-26. Dependencies - Dependencies in Path Operation Decorators - https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-in-path-operation-decorators/
-27. Dependencies - Global Dependencies - https://fastapi.tiangolo.com/tutorial/dependencies/global-dependencies/
-28. Dependencies - Dependencies with `yield` - https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-with-yield/
-29. Dependencies - Parameterizing Dependencies - https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-with-yield/
-30. FastAPI Dependencies in `yield` Dependencies - https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-with-yield/
-31. Dependencies - Cache - https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-with-yield/
-32. Security - First Steps - https://fastapi.tiangolo.com/tutorial/security/
-33. Security - Get Current User - https://fastapi.tiangolo.com/tutorial/security/get-current-user/
-34. Security - Simple OAuth2 with Password and Bearer - https://fastapi.tiangolo.com/tutorial/security/simple-oauth2/
-35. Security - OAuth2 with Password (and hashing), Bearer with JWT tokens - https://fastapi.tiangolo.com/tutorial/security/oauth2-jwt/
-36. Advanced User Authentication in FastAPI - https://fastapi.tiangolo.com/tutorial/advanced-User-Authentication-in-FastAPI/
-37. Middleware - https://fastapi.tiangolo.com/tutorial/middleware/
-38. CORS (Cross-Origin Resource Sharing) - https://fastapi.tiangolo.com/tutorial/cors/
+
+基于 https://fastapi.tiangolo.com/tutorial/ 官方目录（2025年）
+
+01. 第一步 (First Steps) - https://fastapi.tiangolo.com/tutorial/first-steps/
+02. 路径参数 (Path Parameters) - https://fastapi.tiangolo.com/tutorial/path-params/
+03. 查询参数 (Query Parameters) - https://fastapi.tiangolo.com/tutorial/query-params/
+04. 请求体 (Request Body) - https://fastapi.tiangolo.com/tutorial/body/
+05. 查询参数和字符串验证 (Query Parameters and String Validations) - https://fastapi.tiangolo.com/tutorial/query-params-str-validations/
+06. 路径参数和数值验证 (Path Parameters and Numeric Validations) - https://fastapi.tiangolo.com/tutorial/path-params-numeric-validations/
+07. 查询参数模型 (Query Parameter Models) - https://fastapi.tiangolo.com/tutorial/query-param-models/
+08. 请求体 - 多个参数 (Body - Multiple Parameters) - https://fastapi.tiangolo.com/tutorial/body-multiple-params/
+09. 请求体 - 字段 (Body - Fields) - https://fastapi.tiangolo.com/tutorial/body-fields/
+10. 请求体 - 嵌套模型 (Body - Nested Models) - https://fastapi.tiangolo.com/tutorial/body-nested-models/
+11. 声明请求示例数据 (Declare Request Example Data) - https://fastapi.tiangolo.com/tutorial/schema-extra-example/
+12. 额外数据类型 (Extra Data Types) - https://fastapi.tiangolo.com/tutorial/extra-data-types/
+13. Cookie 参数 (Cookie Parameters) - https://fastapi.tiangolo.com/tutorial/cookie-params/
+14. Header 参数 (Header Parameters) - https://fastapi.tiangolo.com/tutorial/header-params/
+15. Cookie 参数模型 (Cookie Parameter Models) - https://fastapi.tiangolo.com/tutorial/cookie-param-models/
+16. Header 参数模型 (Header Parameter Models) - https://fastapi.tiangolo.com/tutorial/header-param-models/
+17. 响应模型 - 返回类型 (Response Model - Return Type) - https://fastapi.tiangolo.com/tutorial/response-model/
+18. 额外模型 (Extra Models) - https://fastapi.tiangolo.com/tutorial/extra-models/
+19. 响应状态码 (Response Status Code) - https://fastapi.tiangolo.com/tutorial/response-status-code/
+20. 表单数据 (Form Data) - https://fastapi.tiangolo.com/tutorial/request-forms/
+21. 表单数据模型 (Form Models) - https://fastapi.tiangolo.com/tutorial/request-form-models/
+22. 请求文件 (Request Files) - https://fastapi.tiangolo.com/tutorial/request-files/
+23. 请求表单和文件 (Request Forms and Files) - https://fastapi.tiangolo.com/tutorial/request-forms-and-files/
+24. 处理错误 (Handling Errors) - https://fastapi.tiangolo.com/tutorial/handling-errors/
+25. 路径操作配置 (Path Operation Configuration) - https://fastapi.tiangolo.com/tutorial/path-operation-configuration/
+26. JSON 兼容编码器 (JSON Compatible Encoder) - https://fastapi.tiangolo.com/tutorial/encoder/
+27. 请求体 - 更新 (Body - Updates) - https://fastapi.tiangolo.com/tutorial/body-updates/
+28. 依赖 (Dependencies) - https://fastapi.tiangolo.com/tutorial/dependencies/
+28.1. 依赖 - 类作为依赖 (Dependencies - Classes as Dependencies) - https://fastapi.tiangolo.com/tutorial/dependencies/classes-as-dependencies/
+28.2. 依赖 - 子依赖 (Dependencies - Sub-dependencies) - https://fastapi.tiangolo.com/tutorial/dependencies/sub-dependencies/
+28.3. 依赖 - 路径操作装饰器中的依赖 (Dependencies - Dependencies in path operation decorators) - https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-in-path-operation-decorators/
+28.4. 依赖 - 全局依赖 (Dependencies - Global Dependencies) - https://fastapi.tiangolo.com/tutorial/dependencies/global-dependencies/
+28.5. 依赖 - 带有 yield 的依赖 (Dependencies - Dependencies with yield) - https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-with-yield/
+29. 安全 (Security) - https://fastapi.tiangolo.com/tutorial/security/
+29.1. 安全 - 第一步 (Security - First Steps) - https://fastapi.tiangolo.com/tutorial/security/first-steps/
+29.2. 安全 - 获取当前用户 (Security - Get Current User) - https://fastapi.tiangolo.com/tutorial/security/get-current-user/
+29.3. 安全 - 简单的 OAuth2 密码和 Bearer (Security - Simple OAuth2 with Password and Bearer) - https://fastapi.tiangolo.com/tutorial/security/simple-oauth2/
+29.4. 安全 - OAuth2 密码（和哈希），Bearer JWT 令牌 (Security - OAuth2 with Password (and hashing), Bearer with JWT tokens) - https://fastapi.tiangolo.com/tutorial/security/oauth2-jwt/
+30. 中间件 (Middleware) - https://fastapi.tiangolo.com/tutorial/middleware/
+31. CORS（跨域资源共享）(CORS (Cross-Origin Resource Sharing)) - https://fastapi.tiangolo.com/tutorial/cors/
+32. SQL（关系型）数据库 (SQL (Relational) Databases) - https://fastapi.tiangolo.com/tutorial/sql-databases/
+33. 更大的应用 - 多文件 (Bigger Applications - Multiple Files) - https://fastapi.tiangolo.com/tutorial/bigger-applications/
+34. 后台任务 (Background Tasks) - https://fastapi.tiangolo.com/tutorial/background-tasks/
+35. 元数据和文档 URL (Metadata and Docs URLs) - https://fastapi.tiangolo.com/tutorial/metadata/
+36. 静态文件 (Static Files) - https://fastapi.tiangolo.com/tutorial/static-files/
+37. 测试 (Testing) - https://fastapi.tiangolo.com/tutorial/testing/
+38. 调试 (Debugging) - https://fastapi.tiangolo.com/tutorial/debugging/
 
 ### Advanced 部分（01-27）
-01. Application Flow - https://fastapi.tiangolo.com/advanced/application-flow/
-02. Behind a Proxy - https://fastapi.tiangolo.com/advanced/behind-a-proxy/
-03. Templates - https://fastapi.tiangolo.com/advanced/templates/
-04. WebSockets - https://fastapi.tiangolo.com/advanced/websockets/
-05. WebSockets - Handling Disconnections and Multiple Clients - https://fastapi.tiangolo.com/advanced/websockets/
-06. Using the `TestClient` - https://fastapi.tiangolo.com/advanced/testing/
-07. Using the `TestClient` - Testing Events with the `TestClient` - https://fastapi.tiangolo.com/advanced/testing-events/
-08. Testing Dependencies with Overrides - https://fastapi.tiangolo.com/advanced/testing-dependencies/
-09. Async Database - https://fastapi.tiangolo.com/advanced/async-database/
-10. Async Tests with HTTPX and AsyncIO - https://fastapi.tiangolo.com/advanced/async-tests/
-11. Project Generation - https://fastapi.tiangolo.com/advanced/project-generation/
-12. Sub Applications - Mounts - https://fastapi.tiangolo.com/advanced/sub-applications/
-13. Background Tasks - https://fastapi.tiangolo.com/advanced/background-tasks/
-14. Using `TestClient` to test Background Tasks - https://fastapi.tiangolo.com/advanced/testing-background-tasks/
-15. Static Files - https://fastapi.tiangolo.com/advanced/static-files/
-16. Custom Response - HTML, Stream, File, others - https://fastapi.tiangolo.com/advanced/custom-response/
-17. Custom Response - Streaming Response with `async` generator - https://fastapi.tiangolo.com/advanced/custom-response/
-18. Custom Response - Streaming Response with `yield` - https://fastapi.tiangolo.com/advanced/custom-response/
-19. Advanced User Authentication in FastAPI - https://fastapi.tiangolo.com/advanced/advanced-user-authentication/
-20. GraphQL - https://fastapi.tiangolo.com/advanced/graphql/
-21. Using `TestClient` to test GraphQL - https://fastapi.tiangolo.com/advanced/testing-graphql/
-22. Applications - `__init__` - https://fastapi.tiangolo.com/advanced/applications/
-23. Applications - Redirects, HTTPS, WSGI - https://fastapi.tiangolo.com/advanced/applications/
-24. Separating `__init__` from the `FastAPI` Instance - https://fastapi.tiangolo.com/advanced/applications/
-25. WSGI Framework - Flask, Django, etc. - https://fastapi.tiangolo.com/advanced/wsgi/
-26. SQL (Relational) Databases - https://fastapi.tiangolo.com/tutorial/sql-databases/
-27. NoSQL (Non-relational) Databases - https://fastapi.tiangolo.com/advanced/nosql-databases/
+
+基于 https://fastapi.tiangolo.com/advanced/ 官方目录（2025年）
+
+01. 路径操作高级配置 (Path Operation Advanced Configuration) - https://fastapi.tiangolo.com/advanced/path-operation-advanced-configuration/
+02. 附加状态码 (Additional Status Codes) - https://fastapi.tiangolo.com/advanced/additional-status-codes/
+03. 直接返回响应 (Return a Response Directly) - https://fastapi.tiangolo.com/advanced/response-directly/
+04. 自定义响应 - HTML、流、文件等 (Custom Response - HTML, Stream, File, others) - https://fastapi.tiangolo.com/advanced/custom-response/
+05. OpenAPI 中的附加响应 (Additional Responses in OpenAPI) - https://fastapi.tiangolo.com/advanced/additional-responses/
+06. 响应 Cookie (Response Cookies) - https://fastapi.tiangolo.com/advanced/response-cookies/
+07. 响应头部 (Response Headers) - https://fastapi.tiangolo.com/advanced/response-headers/
+08. 响应 - 更改状态码 (Response - Change Status Code) - https://fastapi.tiangolo.com/advanced/response-change-status-code/
+09. 高级依赖 (Advanced Dependencies) - https://fastapi.tiangolo.com/advanced/advanced-dependencies/
+10. 高级安全 (Advanced Security) - https://fastapi.tiangolo.com/advanced/advanced-security/
+10.1. 高级安全 - OAuth2 作用域 (Advanced Security - OAuth2 scopes) - https://fastapi.tiangolo.com/advanced/advanced-security/oauth2-scopes/
+10.2. 高级安全 - HTTP 基本认证 (Advanced Security - HTTP Basic Auth) - https://fastapi.tiangolo.com/advanced/advanced-security/http-basic-auth/
+11. 直接使用请求 (Using the Request Directly) - https://fastapi.tiangolo.com/advanced/using-request-directly/
+12. 使用数据类 (Using Dataclasses) - https://fastapi.tiangolo.com/advanced/dataclasses/
+13. 高级中间件 (Advanced Middleware) - https://fastapi.tiangolo.com/advanced/advanced-middleware/
+14. 子应用 - 挂载 (Sub Applications - Mounts) - https://fastapi.tiangolo.com/advanced/sub-applications/
+15. 在代理后面 (Behind a Proxy) - https://fastapi.tiangolo.com/advanced/behind-a-proxy/
+16. 模板 (Templates) - https://fastapi.tiangolo.com/advanced/templates/
+17. WebSockets - https://fastapi.tiangolo.com/advanced/websockets/
+18. 生命周期事件 (Lifespan Events) - https://fastapi.tiangolo.com/advanced/events/
+19. 测试 WebSockets (Testing WebSockets) - https://fastapi.tiangolo.com/advanced/testing-websockets/
+20. 测试事件：lifespan 和 startup - shutdown (Testing Events: lifespan and startup - shutdown) - https://fastapi.tiangolo.com/advanced/testing-events/
+21. 使用覆盖测试依赖 (Testing Dependencies with Overrides) - https://fastapi.tiangolo.com/advanced/testing-dependencies/
+22. 异步测试 (Async Tests) - https://fastapi.tiangolo.com/advanced/async-tests/
+23. 设置和环境变量 (Settings and Environment Variables) - https://fastapi.tiangolo.com/advanced/settings/
+24. OpenAPI 回调 (OpenAPI Callbacks) - https://fastapi.tiangolo.com/advanced/openapi-callbacks/
+25. OpenAPI Webhooks (OpenAPI Webhooks) - https://fastapi.tiangolo.com/advanced/openapi-webhooks/
+26. 包含 WSGI - Flask、Django 等 (Including WSGI - Flask, Django, others) - https://fastapi.tiangolo.com/advanced/wsgi/
+27. 生成 SDK (Generating SDKs) - https://fastapi.tiangolo.com/advanced/generating-clients/
