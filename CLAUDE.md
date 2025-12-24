@@ -75,11 +75,17 @@ When processing FastAPI documentation:
 
 ## Chapter Progression
 
-Tutorial: 38 chapters (01-38)
+Tutorial: 38 chapters (01-38, with sub-chapters like 28.1, 28.2, etc.)
 Advanced: 27 chapters (01-27)
-Total: 65 chapters
+Total: 65 main chapters (plus sub-chapters)
 
-The complete chapter URL mapping is defined in `fastapi-process-chapter/SKILL.md` and `fastapi-commit/SKILL.md`. When adding new chapters, update the chapter list in both files.
+**Important**: The authoritative chapter mapping is in `.claude/skills/fastapi-process-chapter/SKILL.md`. When adding new chapters, update the chapter list in both:
+- `.claude/skills/fastapi-process-chapter/SKILL.md`
+- `.claude/skills/fastapi-commit/SKILL.md`
+
+**Current Progress** (as of docs/学习日志.md):
+- Last completed: Chapter 29.3 - 安全简单的 OAuth2 密码和 Bearer
+- Next chapter: 29.4 - 安全 OAuth2 密码和 Bearer JWT 令牌
 
 ## Learning State Management
 
@@ -100,7 +106,12 @@ Standard commit format:
 [章节XX] {标题} | 学习时间: X小时Y分钟 | 累计: X小时Y分钟 | 进度: X.X%
 ```
 
-After commit, automatically push to remote repository.
+**Note**: The working directory may not be initialized as a git repository. If `git status` fails, initialize with:
+```bash
+git init
+git remote add origin https://github.com/zhang-dalong1988/learn-fast-api.git
+git branch -M main
+```
 
 ## Python Environment
 
