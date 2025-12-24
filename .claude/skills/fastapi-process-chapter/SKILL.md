@@ -45,28 +45,29 @@ allowed-tools: WebFetch, Write, Read, Edit, Bash
 14. 额外模型 (Extra Models) - https://fastapi.tiangolo.com/tutorial/extra-models/
 15. 响应状态码 (Response Status Code) - https://fastapi.tiangolo.com/tutorial/response-status-code/
 16. 表单数据 (Form Data) - https://fastapi.tiangolo.com/tutorial/request-forms/
-17. 请求文件 (Request Files) - https://fastapi.tiangolo.com/tutorial/request-files/
-18. 请求表单和文件 (Request Forms and Files) - https://fastapi.tiangolo.com/tutorial/request-forms-and-files/
-19. 处理错误 (Handling Errors) - https://fastapi.tiangolo.com/tutorial/handling-errors/
-20. 路径操作配置 (Path Operation Configuration) - https://fastapi.tiangolo.com/tutorial/path-operation-configuration/
-21. JSON 兼容编码器 (JSON Compatible Encoder) - https://fastapi.tiangolo.com/tutorial/encoder/
-22. 请求体 - 更新 (Body - Updates) - https://fastapi.tiangolo.com/tutorial/body-updates/
-23. 依赖 - 第一步 (Dependencies - First Steps) - https://fastapi.tiangolo.com/tutorial/dependencies/
-24. 依赖 - 带有 yield 的依赖 (Dependencies - yield Dependencies) - https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-with-yield/
-25. 依赖 - 子依赖 (Dependencies - Subdependencies) - https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-in-path-operation-decorators/
-26. 依赖 - 路径操作装饰器中的依赖 (Dependencies - Dependencies in Path Operation Decorators) - https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-in-path-operation-decorators/
-27. 依赖 - 全局依赖 (Dependencies - Global Dependencies) - https://fastapi.tiangolo.com/tutorial/dependencies/global-dependencies/
-28. 依赖 - 带有 yield 的依赖 (Dependencies - Dependencies with yield) - https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-with-yield/
-29. 依赖 - 参数化依赖 (Dependencies - Parameterizing Dependencies) - https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-with-yield/
-30. FastAPI 依赖在 yield 依赖中 (FastAPI Dependencies in yield Dependencies) - https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-with-yield/
-31. 依赖 - 缓存 (Dependencies - Cache) - https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-with-yield/
-32. 安全 - 第一步 (Security - First Steps) - https://fastapi.tiangolo.com/tutorial/security/
-33. 安全 - 获取当前用户 (Security - Get Current User) - https://fastapi.tiangolo.com/tutorial/security/get-current-user/
-34. 安全 - 简单的 OAuth2 密码和 Bearer (Security - Simple OAuth2 with Password and Bearer) - https://fastapi.tiangolo.com/tutorial/security/simple-oauth2/
-35. 安全 - OAuth2 密码（和哈希），Bearer JWT 令牌 (Security - OAuth2 with Password (and hashing), Bearer with JWT tokens) - https://fastapi.tiangolo.com/tutorial/security/oauth2-jwt/
-36. FastAPI 中的高级用户认证 (Advanced User Authentication in FastAPI) - https://fastapi.tiangolo.com/tutorial/advanced-User-Authentication-in-FastAPI/
-37. 中间件 (Middleware) - https://fastapi.tiangolo.com/tutorial/middleware/
-38. CORS（跨域资源共享）(CORS (Cross-Origin Resource Sharing)) - https://fastapi.tiangolo.com/tutorial/cors/
+17. 表单数据模型 (Form Models) - https://fastapi.tiangolo.com/tutorial/request-form-models/
+18. 请求文件 (Request Files) - https://fastapi.tiangolo.com/tutorial/request-files/
+19. 请求表单和文件 (Request Forms and Files) - https://fastapi.tiangolo.com/tutorial/request-forms-and-files/
+20. 处理错误 (Handling Errors) - https://fastapi.tiangolo.com/tutorial/handling-errors/
+21. 路径操作配置 (Path Operation Configuration) - https://fastapi.tiangolo.com/tutorial/path-operation-configuration/
+22. JSON 兼容编码器 (JSON Compatible Encoder) - https://fastapi.tiangolo.com/tutorial/encoder/
+23. 请求体 - 更新 (Body - Updates) - https://fastapi.tiangolo.com/tutorial/body-updates/
+24. 依赖 - 第一步 (Dependencies - First Steps) - https://fastapi.tiangolo.com/tutorial/dependencies/
+25. 依赖 - 带有 yield 的依赖 (Dependencies - yield Dependencies) - https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-with-yield/
+26. 依赖 - 子依赖 (Dependencies - Subdependencies) - https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-in-path-operation-decorators/
+27. 依赖 - 路径操作装饰器中的依赖 (Dependencies - Dependencies in Path Operation Decorators) - https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-in-path-operation-decorators/
+28. 依赖 - 全局依赖 (Dependencies - Global Dependencies) - https://fastapi.tiangolo.com/tutorial/dependencies/global-dependencies/
+29. 依赖 - 带有 yield 的依赖 (Dependencies - Dependencies with yield) - https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-with-yield/
+30. 依赖 - 参数化依赖 (Dependencies - Parameterizing Dependencies) - https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-with-yield/
+31. FastAPI 依赖在 yield 依赖中 (FastAPI Dependencies in yield Dependencies) - https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-with-yield/
+32. 依赖 - 缓存 (Dependencies - Cache) - https://fastapi.tiangolo.com/tutorial/dependencies/dependencies-with-yield/
+33. 安全 - 第一步 (Security - First Steps) - https://fastapi.tiangolo.com/tutorial/security/
+34. 安全 - 获取当前用户 (Security - Get Current User) - https://fastapi.tiangolo.com/tutorial/security/get-current-user/
+35. 安全 - 简单的 OAuth2 密码和 Bearer (Security - Simple OAuth2 with Password and Bearer) - https://fastapi.tiangolo.com/tutorial/security/simple-oauth2/
+36. 安全 - OAuth2 密码（和哈希），Bearer JWT 令牌 (Security - OAuth2 with Password (and hashing), Bearer with JWT tokens) - https://fastapi.tiangolo.com/tutorial/security/oauth2-jwt/
+37. FastAPI 中的高级用户认证 (Advanced User Authentication in FastAPI) - https://fastapi.tiangolo.com/tutorial/advanced-User-Authentication-in-FastAPI/
+38. 中间件 (Middleware) - https://fastapi.tiangolo.com/tutorial/middleware/
+39. CORS（跨域资源共享）(CORS (Cross-Origin Resource Sharing)) - https://fastapi.tiangolo.com/tutorial/cors/
 
 ### Advanced 部分（高级指南 - 01-27）
 01. 应用流程 (Application Flow) - https://fastapi.tiangolo.com/advanced/application-flow/
